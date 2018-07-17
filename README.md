@@ -32,4 +32,4 @@ Name: Omar Ali
 Contact: Omarh90@gmail.com
 
 Copyright (C) 2018 Omar Ali - All Rights Reserved
-You may use, distribute, modify this code if attributed to original source.
+You may use, distribute, modify this code if attributed to original source and as subject to license agreement.
