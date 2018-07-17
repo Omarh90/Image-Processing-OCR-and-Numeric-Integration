@@ -9,8 +9,10 @@ Manual Integration Program 1.0 7/16/18
 3) Place integration marker with RED line.
 4) Save as PNG file.
 5) Open python or cmd and type:
-   &emsp; import manually
-   manually.integrate()
+```
+>>> import manually
+>>> manually.integrate()
+```
 6) Input file name (as png) and extension when prompted.
 7) Input area of chart when prompted.
 
@@ -24,12 +26,13 @@ Manual Integration Program 1.0 7/16/18
 
 # Installation:
 
-+ Install Python3.7 on computer. Run in python or cmd terminal.
++ Install Python3.7 on computer. 
++ Run in python or cmd terminal.
 
 # Contact:
 
 Name: Omar Ali
-Contact: Omarh90@gmail.com
+Email: Omarh90@gmail.com
 
-Copyright (C) 2018 Omar Ali - All Rights Reserved
+Copyright &copy; 2018 Omar Ali - All Rights Reserved
 You may use, distribute, modify this code if attributed to original source and as subject to license agreement.
