@@ -1,8 +1,8 @@
-## Integration-Program
+# Integration-Program
 manually.py - Integrate area under curves from screengrabs
 Manual Integration Program 1.0 7/16/18
 
-# Instructions:
+## Instructions:
 
 1) Take screen capture of chart.
 2) In graphical editor (e.g. MS Paint), crop out everything but analytical program window.
@@ -16,7 +16,7 @@ Manual Integration Program 1.0 7/16/18
 6) Input file name (as png) and extension when prompted.
 7) Input area of chart when prompted.
 
-# General Usage Notes:
+## General Usage Notes:
 
 + Input total area of chart in mV\*s units. Do this by multiplying the range of the x-axis by the range of the y-axis
 
@@ -24,16 +24,16 @@ Manual Integration Program 1.0 7/16/18
 
 + Set pixel option to true (px=True) to get area count in terms of pixels.
 
-# Installation:
+## Installation:
 
 + Install Python3.7 on computer. 
 + Run in python or cmd terminal.
 
-# Contact:
+## Contact:
 
 Name: Omar Ali
 Email: Omarh90@gmail.com
 
-# Copyright:
+## Copyright:
 Copyright &copy; 2018 Omar Ali - All Rights Reserved
 You may use, distribute, modify this code if attributed to original source and as subject to license agreement.
