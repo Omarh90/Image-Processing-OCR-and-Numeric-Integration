@@ -34,5 +34,6 @@ Manual Integration Program 1.0 7/16/18
 Name: Omar Ali
 Email: Omarh90@gmail.com
 
+# Copyright:
 Copyright &copy; 2018 Omar Ali - All Rights Reserved
 You may use, distribute, modify this code if attributed to original source and as subject to license agreement.
