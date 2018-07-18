@@ -44,7 +44,7 @@ def integrate(px = False):
     if px == False:
         return "Peak area = " + str(round(area,2)) + " mV*sec"
     elif px == True:
-        return "Peak area = " + area_px + " pixels"
+        return "Peak area = " + str(area_px) + " pixels"
     else:
         return 0
 
