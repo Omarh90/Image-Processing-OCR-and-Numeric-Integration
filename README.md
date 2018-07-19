@@ -18,6 +18,8 @@ Manual Integration Program 1.0 7/16/18
 
 ## General Usage Notes:
 
++ Current version of software only compatible with black curve on white background with red integration marker. Watch future versions for better compatibility.
+
 + Input total area of chart in mV\*s units. Do this by multiplying the range of the x-axis by the range of the y-axis
 
 + Outputs units are in mV\*s. Convert to concentration by dividing most recent CCV area by area count as conversion factor.
