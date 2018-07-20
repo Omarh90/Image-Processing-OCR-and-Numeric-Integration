@@ -9,7 +9,7 @@ def integrate(px = False, crop = True, audit = False, custom = False):
 
     #wd: C:\\Program Files\\Python37
     #colors:
-
+    #TODO: define colors
     
     
     if custom == True or audit == True:
@@ -29,9 +29,10 @@ def integrate(px = False, crop = True, audit = False, custom = False):
             warnings.warn('please submit cropped graph with crop option set to False', Warning)
         chart_area = input('Enter total area of chart:')
         units = input('Enter units of chart area:')
-        peak_clr
-        background_clr
-        integrationmarker_clr
+        #print('Indicate the colors used for your chart from the following selection: red, orange, yellow, green, blue, purple, black, white, brown')
+        #peak_clr = lower(input('Enter color of curve:'))
+        #background_clr = lower(input('Enter color of chart background:'))
+        #integrationmarker_clr = lower(input('Enter color of integration marker:'))
             
         
     if audit == True:
