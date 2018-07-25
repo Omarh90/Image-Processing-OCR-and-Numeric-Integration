@@ -1,19 +1,20 @@
 # Integration-Program
 manually.py - Integrate area under curves from screengrabs
+
 Manual Integration Program 1.0 7/16/18
 
 ## Instructions:
 
-1) Take screen capture of chart.
-2) In graphical editor (e.g. MS Paint), crop out everything but analytical program window.
+1) Select print screen.
+2) In graphic editor (e.g. MS Paint), crop out everything but analytical program window.
 3) Place integration marker with RED line and save file.
-5) Open python or cmd and type:
+5) In python:
 ```
 >>> import manually
 >>> manually.integrate()
 ```
 6) Select file when prompted.
-7) Confirm integration by images in filename_calc folder.
+7) Confirm integration and axis parse by images in filename_calc folder.
 
 ## General Usage Notes:
 
