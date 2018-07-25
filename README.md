@@ -6,15 +6,14 @@ Manual Integration Program 1.0 7/16/18
 
 1) Take screen capture of chart.
 2) In graphical editor (e.g. MS Paint), crop out everything but analytical program window.
-3) Place integration marker with RED line.
-4) Save as PNG file.
+3) Place integration marker with RED line and save file.
 5) Open python or cmd and type:
 ```
 >>> import manually
 >>> manually.integrate()
 ```
-6) Input file name and extension when prompted.
-7) Input total area of chart when prompted.
+6) Select file when prompted.
+7) Confirm integration by images in filename_calc folder.
 
 ## General Usage Notes:
 
@@ -24,16 +23,17 @@ Manual Integration Program 1.0 7/16/18
 
 + Outputs units are in mV\*s. Convert to concentration by dividing most recent CCV area by area count as conversion factor.
 
-+ For any other application, input custom units when prompted by setting custom = True
++ For any other application, input custom units of total area of graph (e.g. product of x- and y-axis range) when prompted by setting custom = True
 
 + Set pixel option to true (px=True) to get area count in terms of pixels.
 
-+ Setting audit = true saves the cropped graph and colors the area underneath the curve used for the calculation
++ Saves the cropped graph and colors the area underneath the curve used for the calculation. Run python as admin if permissions needed to save files to directory
 
 ## Installation:
 
 + Install Python3.7 on computer. 
 + Run in python or cmd terminal.
++ Test functionality by running try_me1.png or try_me2.png
 
 ## Contact:
 
