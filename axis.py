@@ -147,7 +147,7 @@ def parse(y,w3,h3,total_pixels, axis_ls):
                                       & (axis_ls[i+5*w3-1][0] == axis_ls[i+5*w3-1][1] & axis_ls[i+5*w3-1][0] == axis_ls[i+5*w3-1][2] & axis_ls[i+5*w3-1][0] < 50) \
                                       & (axis_ls[i+5*w3+3][0] == axis_ls[i+5*w3+3][1] & axis_ls[i+5*w3+3][0] == axis_ls[i+5*w3+3][2] & axis_ls[i+5*w3+3][0] < 50) \
                                       & (axis_ls[i+6*w3-1][0] == axis_ls[i+6*w3-1][1] & axis_ls[i+6*w3-1][0] == axis_ls[i+6*w3-1][2] & axis_ls[i+6*w3-1][0] < 50) \
-                                       & (axis_ls[i+6*w3+3][0] == axis_ls[i+6*w3+3][1] & axis_ls[i+6*w3+3][0] == axis_ls[i+6*w3+3][2] & axis_ls[i+6*w3+3][0] < 50) \
+                                      & (axis_ls[i+6*w3+3][0] == axis_ls[i+6*w3+3][1] & axis_ls[i+6*w3+3][0] == axis_ls[i+6*w3+3][2] & axis_ls[i+6*w3+3][0] < 50) \
                                       & (axis_ls[i+7*w3-1][0] == axis_ls[i+7*w3-1][1] & axis_ls[i+7*w3-1][0] == axis_ls[i+7*w3-1][2] & axis_ls[i+7*w3-1][0] < 50) \
                                       & (axis_ls[i+7*w3+3][0] == axis_ls[i+7*w3+3][1] & axis_ls[i+7*w3+3][0] == axis_ls[i+7*w3+3][2] & axis_ls[i+7*w3+3][0] < 50) \
                                       & (axis_ls[i+8*w3][0] == axis_ls[i+8*w3][1] & axis_ls[i+8*w3][0] == axis_ls[i+8*w3][2] & axis_ls[i+8*w3][0] < 50) \
