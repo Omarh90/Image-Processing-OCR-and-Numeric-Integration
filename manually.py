@@ -13,6 +13,9 @@ def integrate(px = False, crop = True, audit = True, custom = False):
     #      make popup for convenience
     #      output text file of results
     #      close tkinter
+    #      calibration
+    #      clean up integration marker
+    #      highlight clean int marker and peak marker in audit file
 
     import axis
     filename = askopenfilename()
@@ -94,13 +97,21 @@ def integrate(px = False, crop = True, audit = True, custom = False):
 
     if len(int_marker) <= 10:
         warnings.warn("Integration marker not recognized. Results are artificially high.", Warning)
+
+    int_cols_clean = []
+    int_marker_clean = []
+    for x in int_marker:
+        if x%w2 not in int_cols_clean:
+            int_marker_clean.append(x)
+            int_cols_clean.append(x%w2)
+        
     peak_cols_clean = []
     clean_peak = []
     for x in peak:
         if x%w2 not in peak_cols_clean:
             clean_peak.append(x)
             peak_cols_clean.append(x%w2)
-    area_px = sum([(x - y)/w2 for x in int_marker for y in clean_peak if y%w2 == x%w2])
+    area_px = sum([(x - y)/w2 for x in int_marker_clean for y in clean_peak if y%w2 == x%w2])
     
     area_crop = (w2 + 1) * (h2 + 1)
     area_crop_mVs = float(chart_area)
@@ -108,10 +119,9 @@ def integrate(px = False, crop = True, audit = True, custom = False):
     area_px = int(area_px)
     if audit == True:
         im_audit = graph
-        x_min, x_max = min([x%w2 for x in int_marker]), max([x%w2 for x in int_marker])
-        int_marker_sorted = sorted(int_marker, key = lambda int_marker: int(int_marker)%w2)
+        x_min, x_max = min([x%w2 for x in int_marker_clean]), max([x%w2 for x in int_marker_clean])
+        int_marker_sorted = sorted(int_marker_clean, key = lambda int_marker_clean: int(int_marker_clean)%w2)
         int_marker_y = [math.floor(y/w2) for y in int_marker_sorted]
-
         integration_values = [(x - y)/w2 for x in int_marker_sorted for y in clean_peak if y%w2 == x%w2]
         areacolor_audit = (5,80,100)
         peakcolor_audit = (10,10,255)
@@ -129,7 +139,9 @@ def integrate(px = False, crop = True, audit = True, custom = False):
 
     if float(area_px_audit) > float(area_px) * 1.01 or float(area_px_audit) < float(area_px) * 0.99:
         warnings.warn("Shaded area not representative of calculated area!", Warning)
-        print('Area under curve = ' + str(area_px_audit) + 'pixels')
+        print('Shaded area under curve = ' + str(area_px_audit) + 'pixels')
+        print('Area under curve = ' + str(area_px) + 'pixels')
+        
     if px == False:
         if custom == False:
             return "Peak area = " + str(round(area,2)) + " mV*sec"
@@ -138,4 +150,5 @@ def integrate(px = False, crop = True, audit = True, custom = False):
     elif px == True:
         return "Peak area = " + str(area_px) + " pixels"
     else:
-        return 0;
+        return 0
+
