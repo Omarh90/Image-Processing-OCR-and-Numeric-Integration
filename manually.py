@@ -5,6 +5,7 @@ import warnings
 from PIL import Image
 import pdb
 import numpy as np
+import tkinter as tk
 from tkinter.filedialog import askopenfilename
 
 def integrate(px = False, crop = True, audit = True, custom = False):
@@ -18,8 +19,11 @@ def integrate(px = False, crop = True, audit = True, custom = False):
     #      highlight clean int marker and peak marker in audit file
 
     import axis
+    
+    root=tk.Tk()
     filename = askopenfilename()
-    #tkinter.destroy()
+    root.mainloop
+    root.destroy()
     
     if custom == False:
         peak_clr = 'black'
