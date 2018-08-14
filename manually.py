@@ -9,7 +9,7 @@ import pdb
 import numpy as np
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
-import axis
+import xyaxis
 import calibration
 import report
 
