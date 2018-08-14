@@ -1,3 +1,4 @@
+#Written by: Omar Ali <Omarh90@gmail.com>
 import os
 import math
 import collections
