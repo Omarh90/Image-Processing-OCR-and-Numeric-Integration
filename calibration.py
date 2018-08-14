@@ -11,11 +11,11 @@ def curve(x_mV, el, sen, audit=False):
     calibration correction factor.
 
     y = a + bx + cx^2 + dx^3 + ex^4, for x >= highconc_lowerlim, and
-    y = a + bx + cx^2 + dx^3         for x < highconc_lowerlim,
+    y = a + bx + cx^2 + dx^3         for x <  highconc_lowerlim,
 
-    where x = peak area in V*sec, and y = mg element. Note that in order to
-    match the CNS software calculation, this calibration does not use the
-    convention of abscissa for concentration, and ordinate for signal.
+    where x = peak area in V*sec, and y = mg element in sample. Note that in 
+    order to match the CNS software calculation, this calibration does not use
+    the convention of abscissa for concentration, and ordinate for signal.
     
     Note 'a' term corresponds to intercept, and 'e' to 4th order coefficient,
     to stay consistent with CNS software nomenclature.
@@ -23,7 +23,8 @@ def curve(x_mV, el, sen, audit=False):
     ____________________________________________________________________________
     Parameters:
  
-     * x_mV: (float) Area under curve in mV*sec. (Note: calibration calculated in V*sec)
+     * x_mV: (float) Area under curve in mV*sec. (Note: calibration calculated
+           in V*sec, but instrument displays area count in mV*sec.)
 
      * el: (str) Element of peak selected for integration. Order and timing of peak
            on chart indicates which element (either C, N, or S).  
