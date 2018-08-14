@@ -1,7 +1,7 @@
 # Integration-Program
 manually.py - Integrate area under curves from screengrabs
 
-Manual Integration Program 1.0 7/16/18
+Manual Integration Program 2.0 8/14/18
 
 ## Instructions:
 
