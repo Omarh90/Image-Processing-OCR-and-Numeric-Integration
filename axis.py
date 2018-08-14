@@ -6,8 +6,11 @@ from PIL import Image
 import numpy as np
 import pdb
 
+"""
+Reads x- and y-values on axes from screengrab of graph, returning tuple list in ascending order of x or y-values on axes. 
+"""
+
 def parse(y,w3,h3,total_pixels, axis_ls):
-    #pdb.set_trace()
 
     if y:
         x = False
