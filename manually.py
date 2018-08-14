@@ -44,8 +44,8 @@ def integrate(px = False, crop = True, audit = True, custom = False):
     #For CNS instrument graph parse.
     if custom == False:
         #User input sample parameters.
-        el = input('Enter element for single peak (C/N/S):').capitalize()
-        corr_factor = float(input('Enter correction factor (default = 1):'))
+        el = input('Enter element for single peak (C/N/S):').strip()[0].capitalize()
+        corr_factor = float(input('Enter correction factor (0 < f <= 1):'))
         wt = float(input('Enter sample weight, mg (default 2500 mg):'))
         user_ID = input('Enter initials:').upper()
         peak_clr = 'black'
