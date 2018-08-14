@@ -101,8 +101,8 @@ def integrate(px = False, crop = True, audit = True, custom = False):
         y_totalpx = len(y_axis_val)-1
 
         #Reads x and y axis.
-        x_axis = axis.parse(False, w_x, h_x, x_totalpx, x_axis_val)
-        y_axis = axis.parse(True, w_y, h_y, y_totalpx, y_axis_val)
+        x_axis = xyaxis.parse(False, w_x, h_x, x_totalpx, x_axis_val)
+        y_axis = xyaxis.parse(True, w_y, h_y, y_totalpx, y_axis_val)
 
         #Calulates area of entire graph.
         chart_area = int(-1*(np.mean(np.diff(x_axis))*(len(x_axis)-1))*np.mean(np.diff(y_axis))*(len(y_axis)-1))
