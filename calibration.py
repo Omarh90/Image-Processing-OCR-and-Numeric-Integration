@@ -124,7 +124,7 @@ def curve(x_mV, el, sen, audit=False):
 
     #Inverted forth order calibration curve. 3rd order (e.g. e=0) for low concentration results.
     y = a + b*x + c*x**2 + d*x**3 + e*x**4
-    if not errormessage:
+    if errormessage:
         print(errormessage)
         
     if audit == False:
