@@ -182,6 +182,8 @@ def integrate(px = False, crop = True, audit = True, custom = False):
         xmin_pk, xmax_pk = min([x%w2 for x in clean_peak]), max([x%w2 for x in clean_peak])
         cleanpeak_x = [x%w2 for x in clean_peak]
         cleanpeak_y = [math.floor(y/w2) for y in clean_peak]
+        intmarker_x = [x%w2 for x in int_marker_clean]
+        intmarker_y = [math.floor(y/w2) for y in int_marker_clean]
 
         #Finds retention time of peak in seconds.
         rt_px0 = clean_peak[0]%w2
@@ -202,8 +204,8 @@ def integrate(px = False, crop = True, audit = True, custom = False):
             
         #Colors in integration marker.
         for x in range(0,len(int_marker_clean)):
-            im_audit.putpixel((x + x_min, -y+int_marker_y[x]-1), intcolor_audit)
-            im_audit.putpixel((x + x_min, -y+int_marker_y[x]), intcolor_audit)
+            im_audit.putpixel((intmarker_x[x], intmarker_y[x]), intcolor_audit)
+            im_audit.putpixel((intmarker_x[x], intmarker_y[x]), intcolor_audit)
         int_fill_coordinates = list(zip(x_fill_audit,y_fill_audit))
 
         #Pastes filled in chart onto original image.
