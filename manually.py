@@ -205,7 +205,7 @@ def integrate(px = False, crop = True, audit = True, custom = False):
         #Colors in integration marker.
         for x in range(0,len(int_marker_clean)):
             im_audit.putpixel((intmarker_x[x], intmarker_y[x]), intcolor_audit)
-            im_audit.putpixel((intmarker_x[x], intmarker_y[x]), intcolor_audit)
+            im_audit.putpixel((intmarker_x[x], intmarker_y[x]+1), intcolor_audit)
         int_fill_coordinates = list(zip(x_fill_audit,y_fill_audit))
 
         #Pastes filled in chart onto original image.
