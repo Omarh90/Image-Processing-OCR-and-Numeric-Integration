@@ -7,7 +7,7 @@ Manual Integration Program 2.0 8/14/18
 
 1) Press print screen button.
 2) In graphic editor (e.g. MS Paint), crop out everything but analytical program window and save as png file.
-3) In python:
+3) Double-click on 'integrate_beta', or in python:
 ```
 >>> import integrate_beta
 ```
