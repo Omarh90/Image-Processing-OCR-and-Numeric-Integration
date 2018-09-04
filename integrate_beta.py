@@ -1,7 +1,7 @@
 
 about = \
 """
-Integrate - Beta
+Integrate - Alpha
 
 Instructions:
 1) Set parameters on right:
