@@ -4,7 +4,7 @@ import os
 import math
 from decimal import Decimal
 def generate(filename_dir, conc, corr_factor, wt, area_px, x_axis, y_axis,
-    chart_area, chartarea_px, cal_audit, ret_time, user_ID):
+    chart_area, chartarea_px, cal_audit, ret_time, user_ID, samp_ID=""):
             
     """
     Generates report for area under curve in command window,
@@ -39,6 +39,12 @@ def generate(filename_dir, conc, corr_factor, wt, area_px, x_axis, y_axis,
          * cal_audit[3] = cal_date (str)
          * cal_audit[4] = cal_ID (str)
          * cal_audit[5] = errormessage (str)
+         
+    * ret_time: (float) chromatographic retention time of peak.
+
+    * user_ID: (string) initials of user.
+
+    * samp_ID: (string, optional) Sample ID. File name used if absent.
     ____________________________________________________________________________
     Returns:
 
@@ -48,7 +54,10 @@ def generate(filename_dir, conc, corr_factor, wt, area_px, x_axis, y_axis,
     #Filename parsing.
     currentdate = f'{datetime.datetime.now():%Y-%m-%d %H:%M:%S}'
     directory, filename = os.path.split(filename_dir)
-    sample_ID = filename.split('.')[:-1][0]
+    if not samp_ID:
+       sample_ID = filename.split('.')[:-1][0]
+    else:
+        sample_ID = samp_ID
 
     #Calibration data.
     el = cal_audit[0][2]
@@ -63,7 +72,13 @@ def generate(filename_dir, conc, corr_factor, wt, area_px, x_axis, y_axis,
     x = cal_audit[0][1]
     coeff = ['%.6E' % Decimal(i) for i in cal_audit[1]]
     coeff2 = ['%.4E' % Decimal(abs(i)) for i in cal_audit[1]]
-    coeff_spacing = [" "*math.ceil(i/abs(2*i)) for i in cal_audit[1]]
+    try:
+        if order == 4:
+            coeff_spacing = [" "*math.ceil(i/abs(2*i)) for i in cal_audit[1]]
+        elif order ==3:
+            coeff_spacing = [" "*math.ceil(i/abs(2*i)) for i in cal_audit[1][:-1]]
+    except ZeroError:
+        coeff_spacing = [" "*len(cal_audit[1])]
     plus, i = [], 0
     for i in cal_audit[1]:
         if i >= 0:
@@ -72,8 +87,6 @@ def generate(filename_dir, conc, corr_factor, wt, area_px, x_axis, y_axis,
             plus.append('-')
     if plus[0] == '+':
         plus[0] = ['']
-
-    #Formatting.
     if el == 'C':
         element = 'Carbon'
     elif el == 'N':
@@ -149,7 +162,7 @@ def generate(filename_dir, conc, corr_factor, wt, area_px, x_axis, y_axis,
             \n\t         y = a + b*x + c*x^2 + d*x^3 + e*x^4, \
             \n \
             \n for  x < {h} and x > {l}, where x={x3} V*sec is the area count underneath the curve, \
-            \n y is amount of {el2} in sample, y={y} mg {el1}, and: \
+            \n y ={y} mg {el1} is amount of {el2} in sample, and: \
             \n \
             \n\t         a = {s[0]}{c_i[0]}, \
             \n\t         b = {s[1]}{c_i[1]}, \
@@ -161,7 +174,8 @@ def generate(filename_dir, conc, corr_factor, wt, area_px, x_axis, y_axis,
             \n \
             \n\t {y} mg {el1} = a + b*x + c*x^2 + d*x^3, \
             \n \
-            \n for  x < {h} and x > {l},where x={x3} is the area count underneath the curve in V*sec, and: \
+            \n for  x < {h} and x > {l},where x={x3} V*sec is the area count underneath the curve, \
+            \n y ={y} mg {el1} is amount of {el2} in sample, and: \
             \n\t         a = {s[0]}{c_i[0]}, \
             \n\t         b = {s[1]}{c_i[1]}, \
             \n\t         c = {s[2]}{c_i[2]}, \
