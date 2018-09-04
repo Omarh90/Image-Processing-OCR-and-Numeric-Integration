@@ -1,5 +1,5 @@
 # Integration-Program
-Calculate area underneath curve from a screengrab with integrate_beta.py.
+Calculate area underneath curve from a screengrab with integrate_alpha.py.
 
 Integration Program 1.0 9/4/18
 
@@ -7,7 +7,7 @@ Integration Program 1.0 9/4/18
 
 1) Press print screen button.
 2) In graphic editor (e.g. MS Paint), crop out everything but analytical program window and save as png file.
-3) Double-click on 'integrate_beta', or in python:
+3) Double-click on 'integrate_alpha', or in python:
 ```
 >>> import integrate_beta
 ```
