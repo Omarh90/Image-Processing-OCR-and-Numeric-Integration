@@ -7,15 +7,13 @@ Manual Integration Program 2.0 8/14/18
 
 1) Press print screen button.
 2) In graphic editor (e.g. MS Paint), crop out everything but analytical program window.
-3) Place integration marker with RED line and save file in directory with permissions in which folder can be created.
-5) In python:
+3) In python:
 ```
->>> import manually
->>> manually.integrate()
+>>> import integrate_beta
 ```
-6) Select file when prompted.
-7) When prompted, input element, correction factor (between 0 and 1), sample weight (2.5 g default), and initials. 
-7) Confirm integration and axis parse by images in filename_calc folder.
+4) Right-click and drag across peak to place integration marker.
+5) To save, select File > Save from dropdown, and input sample ID and user initials when prompted.
+6) Sample report will autogenerate.
 
 ## General Usage Notes:
 
@@ -23,9 +21,7 @@ Manual Integration Program 2.0 8/14/18
 
 + Creates report from manual integration, including calibration parameters and calculations.
 
-+ For any other application, input custom units of total area of graph (e.g. product of x- and y-axis range) when prompted by setting custom = True
-
-+ Set pixel option to true (px=True) to get area count in terms of pixels.
++ For any other application, input custom units of total area of graph (e.g. product of x- and y-axis range) when prompted by setting custom = True (Watch future versions for this feature to be enabled.)
 
 + Saves the cropped graph and colors the area underneath the curve used for the calculation. Run python as admin if permissions needed to save files to directory
 
@@ -33,7 +29,7 @@ Manual Integration Program 2.0 8/14/18
 
 + Install Python3.7 on computer. 
 + Run in python or cmd terminal.
-+ Test functionality by saving try_me1.png or try_me2.png in folder with permissions to create new directory and run through program.
++ Test functionality by loading try_me1.png or try_me2.png in folder with permissions to create new directory and run through program, and saving in same folder.
 
 ## Contact:
 
