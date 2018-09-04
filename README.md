@@ -1,7 +1,7 @@
 # Integration-Program
-integrate_beta.py - Integrate area under curves from screengrabs
+Calculate area underneath curve from a screengrab with integrate_beta.py.
 
-Manual Integration Program 2.0 8/14/18
+Integration Program 1.0 9/4/18
 
 ## Instructions:
 
