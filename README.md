@@ -9,7 +9,7 @@ Integration Program 1.0 9/4/18
 2) In graphic editor (e.g. MS Paint), crop out everything but analytical program window and save as png file.
 3) Double-click on 'integrate_alpha', or in python:
 ```
->>> import integrate_beta
+>>> import integrate_alpha
 ```
 4) Right-click and drag across peak to place integration marker.
 5) To save, select File > Save from dropdown, and input sample ID and user initials when prompted.
