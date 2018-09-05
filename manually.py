@@ -56,7 +56,9 @@ def integrate(im_dir="", px=False, crop=True, audit=True, custom=False, subtract
     """
 
     #TODO:
+    #      change int-marker color from red!
     #      custom feature: colors
+    #      GUI
     
     errormsg = ""
     if gui == False:
@@ -186,7 +188,7 @@ def integrate(im_dir="", px=False, crop=True, audit=True, custom=False, subtract
 
     if len(int_marker) <= 10:
         warnings.warn('Integration marker not recognized. Results may be artificially high.', Warning)
-        errormsg = errormsg + 'Integration marker not recognized.     Results may be artificially high.'
+        errormsg = errormsg + 'Integration marker not recognized.             Results may be artificially high.'
 
     #Cleans up integration marker (makes one to one).
     int_cols_clean = []
@@ -253,7 +255,7 @@ def integrate(im_dir="", px=False, crop=True, audit=True, custom=False, subtract
         if subtract == False:
             int_marker_clean = [p[0] + p[1]*w2 for p in xyint for q in xypeak if p[0] == q[0] and p[0] > q[1]]
         else:
-            int_marker_clean = [p[0] + p[1]*w2 for p in xyint for q in xypeak if p[0] == q[0]] # and p[0] > q[1]]
+            int_marker_clean = [p[0] + p[1]*w2 for p in xyint for q in xypeak if p[0] == q[0]]
         intmarker_x = [x%w2 for x in int_marker_clean]
         intmarker_y = [math.floor(y/w2) for y in int_marker_clean]
         intmarker_x1 = [x%w2 for x in int_marker_clean1]
@@ -295,15 +297,22 @@ def integrate(im_dir="", px=False, crop=True, audit=True, custom=False, subtract
             
         #Colors in integration marker.
         if colorint == True and not save:
-            for x in range(0,len(int_marker_clean1)): #clean vclean1
+            for x in range(0,len(int_marker_clean1)):
                 im_audit.putpixel((intmarker_x1[x], intmarker_y1[x]), intcolor_audit)
                 im_audit.putpixel((intmarker_x1[x], intmarker_y1[x]+1), intcolor_audit)
             int_fill_coordinates = list(zip(x_fill_audit,y_fill_audit))
         elif save:
             im_save = im_audit.copy()
-            for x in range(0,len(int_marker_clean1)): #clean vclean1
+            for x in range(0,len(int_marker_clean1)):
                 im_save.putpixel((intmarker_x1[x], intmarker_y1[x]), intcolor_save)
-                im_save.putpixel((intmarker_x1[x], intmarker_y1[x]+1), intcolor_save)
+                try:
+                    im_save.putpixel((intmarker_x1[x], intmarker_y1[x]-1), intcolor_save)
+                except:
+                    pass
+                try:
+                    im_save.putpixel((intmarker_x1[x], intmarker_y1[x]+1), intcolor_save)
+                except:
+                    pass
             int_fill_coordinates = list(zip(x_fill_audit,y_fill_audit))
             
         #Finds retention time of peak in terms of seconds.
