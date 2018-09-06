@@ -91,7 +91,7 @@ class Cnv(Canvas):
         self.grid(row=1, column=1, columnspan=10, rowspan=10, padx=7 ,pady=5)
 
     def set_parameters(self):
-
+    #Get calibration curve parmaeters from Input and radio button.
         try:
             Cnv.corr = txt_f.get()
             Cnv.wt = txt_wt.get()
@@ -101,13 +101,14 @@ class Cnv(Canvas):
             if Cnv.resetbtn or len(Cnv.el) != 1 or len(str(Cnv.wt)) > 10 or len(str(Cnv.corr)) > 10:
                 raise ValueError
         except ValueError:
+            #Displays error for invalid parameters
             self.realtimeint = [['','','',0,'Invalid Parameter Error!'],'','','']
             rs.changeconc(self.realtimeint[0])
             Cnv.trace_coord[0] = 0
             self.get_file(self.realtimeint[1], integrate = Cnv.integrate)
 
     def quantify(self):
-
+    #Recalculate data, triggered by user clicking 'Quant' button.
         x1, y1, x2, y2  = self.coord[0][0], self.coord[0][1], self.coord[1][0], self.coord[1][1]
         self.set_parameters()
         self.realtimeint =  manually.integrate(gui=True, subtract=Cnv.subtr.get(), custom=Cnv.custm.get(), save=False, colorint=False,
@@ -120,7 +121,9 @@ class Cnv(Canvas):
         Cnv.line_id2 = self.create_line(x1, y1, x2, y2, fill="red", width=2)
 
     def clicktrack_int(self, event):
-
+    #Records first set of coordinates from right click on canvas, then
+    # passes along coordinates to Motion or Release events.
+    
         x1,y1 = (event.x, event.y)
         if (str(event.type)=='ButtonRelease' or str(event.type)=='ButtonPress'):
             if len(Cnv.int_coord) >= 2:
@@ -159,7 +162,6 @@ class Cnv(Canvas):
                 Cnv.line_id2 = self.create_line(x1,y1,x2,y2,fill="red", width=2)
 
             else:
-
                 #Cleans workspace of other lines.
                 if Cnv.line_id1:
                     self.delete(Cnv.line_id1)
@@ -183,7 +185,8 @@ class Cnv(Canvas):
                     self.get_file(self.graph, integrate = Cnv.integrate)
 
     def get_file(self, filenameint=0, integrate = False):
-
+        
+        #Reintegration of same file: displays updated graphic.
         if integrate == True:
             self.filenameint = filenameint
             self.imint = Image.open(self.filenameint)
@@ -191,6 +194,7 @@ class Cnv(Canvas):
             self.graphint = ImageTk.PhotoImage(self.imint)
             self.create_image((self.w2/2,self.h2/2), anchor=CENTER, image = self.graphint)
 
+        #User opens new file.
         if filenameint==0:
             self.filename_t = askopenfilename(defaultextension='.',
                 filetypes=[('All picture files',('*.bmp', '*.gif', '*.png', '*.jpg')),
@@ -235,7 +239,8 @@ class ResultsSummary(Text):
         self.conc = results[0]
 
     def changeconc(self,results):
-
+    
+        #Updates results display
         try:
             self.el = results[2]
         except IndexError:
@@ -265,22 +270,15 @@ class ResultsSummary(Text):
         self.config(state=DISABLED)
 
     def reset(self):
-
+        #Clears results display
         self.config(state=NORMAL)
         self.configure()
         self.delete(index1="1.0", index2=END)
         self.config(state=DISABLED)
 
-class ResultsReport(Text):
-
-    def __init__(self):
-
-        self.null = 0
-
 class Radiobtn(Radiobutton):
-
+#User select which element peak represents (C, N, or S).
     def __init__(self, root, options):
-
         self.radio_row = 4
         self.rd_align=[3,3,0]
         self.el = StringVar()
@@ -290,7 +288,7 @@ class Radiobtn(Radiobutton):
            self.grid(row=self.radio_row, column=13, rowspan = 1, padx=self.rd_align[i])
 
 class Save(Toplevel):
-
+#Saves integration file, txt report, and original file.
     def __init__(self,root):
 
         Toplevel.__init__(self, root)
@@ -370,10 +368,11 @@ class Save(Toplevel):
         self.withdraw()
         self.ent_flnm.delete(0, END)
         self.ent_user.delete(0, END)
+
 class Options(Toplevel):
-
+#Pulls up options window, and passes along user-selected options.
     def __init__(self,root):
-
+  
         Toplevel.__init__(self, root)
         self.iconbitmap('iconbitmap.ico')
         self.title=self.title('Settings')
