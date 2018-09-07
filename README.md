@@ -27,8 +27,9 @@ Integration Program 1.0 9/4/18
 
 ## Installation:
 
-+ Install Python3.7 on computer. 
-+ Run in python or cmd terminal.
++ Install Python3.7.
++ Save integrate_alpha.py and auxiliary program files into directory with file-save permissions.
++ Run integrate_alpha.py in python or cmd terminal.
 + Test functionality by loading try_me1.png or try_me2.png in folder with permissions to create new directory and run through program, and saving in same folder.
 
 ## Contact:
