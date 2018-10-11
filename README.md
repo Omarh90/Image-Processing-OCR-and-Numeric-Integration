@@ -28,6 +28,7 @@ Integration Program 1.0 9/4/18
 ## Installation:
 
 + Install Python3.7.
++ Install the following Python modules: tkinter, shutil, pdb, os, Image, math, collections, warnings, numpy, datetime, decimal
 + Save integrate_alpha.py and auxiliary program files into directory with file-save permissions.
 + Run integrate_alpha.py in python or cmd terminal, or just doubleclick on integrate_alpha.py
 + Test functionality by loading try_me1.png or try_me2.png in folder with permissions to create new directory and run through program, and saving in same folder.
