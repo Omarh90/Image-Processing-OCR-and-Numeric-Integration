@@ -39,7 +39,6 @@ from tkinter.filedialog import askopenfilename
 from tkinter.filedialog import asksaveasfilename
 from tkinter import *
 #from ttk import *
-import pyperclip
 from shutil import copyfile
 import pdb
 import os
