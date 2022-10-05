@@ -17,6 +17,8 @@ Integration Program 1.0 9/4/18
 
 ## General Usage Notes:
 
++ Laptop Touchpads currently not compatible with Tkinter UI bindings. A separate mouse may be needed to operate program.
+
 + Current version of software only compatible with black curve on white background with red integration marker. Watch future versions for better compatibility.
 
 + Creates report from manual integration, including calibration parameters and calculations.
@@ -37,8 +39,9 @@ Integration Program 1.0 9/4/18
 ## Contact:
 
 Name: Omar
+
 Email: Omarh90+gh@gmail.com
 
 ## Copyright:
-Copyright &copy; 2018 Omar - All Rights Reserved
+Copyright &copy; 2018 Omar Ali - All Rights Reserved
 You may use, distribute, modify this code if attributed to original source and as subject to license agreement.
