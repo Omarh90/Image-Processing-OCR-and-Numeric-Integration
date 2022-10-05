@@ -36,9 +36,9 @@ Integration Program 1.0 9/4/18
 
 ## Contact:
 
-Name: Omar Ali
-Email: Omarh90@gmail.com
+Name: Omar
+Email: Omarh90+gh@gmail.com
 
 ## Copyright:
-Copyright &copy; 2018 Omar Ali - All Rights Reserved
+Copyright &copy; 2018 Omar - All Rights Reserved
 You may use, distribute, modify this code if attributed to original source and as subject to license agreement.
