@@ -1,4 +1,4 @@
-#Written by Omar Ali <Omarh90@gmail.com>
+#Written by Omarh90+gh@gmail.com
 
 about = \
 """
@@ -31,7 +31,7 @@ about = \
 
           o Pick colors used in chart. (Coming soon)
 
-                                        Written by Omar Ali, 2018.
+                                        Written by Omar, 2018.
 
 """
 
@@ -50,6 +50,14 @@ import manually
 #   * colors menu
 #   * custom feature
 
+class Mouse:
+
+    # define mouse event.type enumeration
+    r_button_press = '4'
+    r_button_release =  '5'
+    motion = '6'
+
+
 class Cnv(Canvas):
 
     subtr = 0
@@ -65,6 +73,7 @@ class Cnv(Canvas):
     txt_el = ""
     el = ""
     resetbtn = False
+    mouse = Mouse()
 
     def __init__(self, root, im):
 
@@ -122,9 +131,10 @@ class Cnv(Canvas):
     def clicktrack_int(self, event):
     #Records first set of coordinates from right click on canvas, then
     # passes along coordinates to Motion or Release events.
-    
-        x1,y1 = (event.x, event.y)
-        if (str(event.type)=='ButtonRelease' or str(event.type)=='ButtonPress'):
+
+        x1,y1 = (event.x, event.y) 
+        if event.type == Cnv.mouse.r_button_release or \
+           event.type == Cnv.mouse.r_button_press:
             if len(Cnv.int_coord) >= 2:
                 Cnv.int_coord = []
             Cnv.int_coord.append((event.x, event.y))
@@ -132,20 +142,19 @@ class Cnv(Canvas):
                 Cnv.resetbtn = False
                 Cnv.draw_intmarker(self, Cnv.int_coord, event)
 
-        if str(event.type)=='ButtonPress':
+        if event.type == Cnv.mouse.r_button_press:
             if Cnv.line_id2:
                 self.delete(Cnv.line_id2)
             Cnv.trace_coord[0] = (event.x, event.y)
 
-        if str(event.type)=='Motion':
+        if event.type == Cnv.mouse.motion:
             Cnv.trace_coord[1] = (event.x,event.y)
             if Cnv.trace_coord[0] != 0 and Cnv.trace_coord[1] != 0:
                 Cnv.draw_intmarker(self, Cnv.trace_coord, event)
-        if str(event.type)=='ButtonRelease':
+        if event.type == Cnv.mouse.r_button_release:
             Cnv.trace_coord[0] = 0
 
     def draw_intmarker(self, coord, event):
-
         self.coord=coord
         x1, y1, x2, y2 =(coord[0][0], coord[0][1], coord[1][0], coord[1][1])
 
@@ -155,7 +164,7 @@ class Cnv(Canvas):
 
         else:
             #Shows preview of integration marker, creating and deleting new line with each movement.
-            if str(event.type) == 'Motion':  
+            if event.type == Cnv.mouse.motion:
                 if Cnv.line_id2:
                     self.delete(Cnv.line_id2)
                 Cnv.line_id2 = self.create_line(x1,y1,x2,y2,fill="red", width=2)
@@ -291,7 +300,7 @@ class Save(Toplevel):
     def __init__(self,root):
 
         Toplevel.__init__(self, root)
-        self.iconbitmap('iconbitmap.ico')
+        #self.iconbitmap('iconbitmap.ico')
         self.title=self.title('Save')
         self.geometry('250x75')
         self.withdraw()
@@ -373,7 +382,7 @@ class Options(Toplevel):
     def __init__(self,root):
   
         Toplevel.__init__(self, root)
-        self.iconbitmap('iconbitmap.ico')
+        #self.iconbitmap('iconbitmap.ico')
         self.title=self.title('Settings')
         self.geometry('225x100')
         self.lbl_subt = Label(self, text='Quantification:', anchor=E)
@@ -383,8 +392,8 @@ class Options(Toplevel):
         #Default calculation options:
         #  o No subtraction of negative area
         #  o No custom integration.
-        Cnv.subtr = IntVar(0)
-        Cnv.custm = IntVar(0)
+        Cnv.subtr = IntVar(value=0)
+        Cnv.custm = IntVar(value=0)
 
         # Settings checkboxes
         self.subchk = Checkbutton(self, text='Subtract', variable=Cnv.subtr, anchor=E)
@@ -424,7 +433,7 @@ class Aboutme(Toplevel):
     def __init__(self,root):
 
         Toplevel.__init__(self, root)
-        self.iconbitmap('iconbitmap.ico')
+        #self.iconbitmap('iconbitmap.ico')
         self.title=self.title('About Integrate')
         self.geometry('500x550')
         self.withdraw()
@@ -445,7 +454,8 @@ class Aboutme(Toplevel):
         self.deiconify()
 
 root = Tk()
-root.iconbitmap('iconbitmap.ico')
+#root.iconbitmap(default='iconbitmap.ico')
+# TODO: Debug icon image
 root.title('Integrate')
 root.geometry('800x550')
 
