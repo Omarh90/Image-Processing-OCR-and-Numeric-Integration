@@ -45,10 +45,8 @@ import os
 from PIL import Image, ImageTk
 import manually
 
-#TODO:
-#   * consolidate files generated
-#   * colors menu
-#   * custom feature
+# TODO: - Refactor OOP kludge
+#       - Debug icon bitmap
 
 class Mouse:
 
